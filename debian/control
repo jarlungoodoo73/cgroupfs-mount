@@ -2,8 +2,8 @@ Source: cgroupfs-mount
 Section: admin
 Priority: optional
 Maintainer: Tianon Gravi <tianon@debian.org>
-Build-Depends: debhelper-compat (= 12)
-Standards-Version: 3.9.6
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
 Homepage: https://github.com/tianon/cgroupfs-mount
 Vcs-Git: https://github.com/tianon/cgroupfs-mount.git
 Vcs-Browser: https://github.com/tianon/cgroupfs-mount
