@@ -20,11 +20,11 @@ fi
 cd /sys/fs/cgroup
 
 for sys in *; do
-	if mountpoint -q $sys; then
-		umount $sys
+	if mountpoint -q "$sys"; then
+		umount "$sys"
 	fi
-	if [ -d $sys ]; then
-		rmdir $sys || true
+	if [ -d "$sys" ]; then
+		rmdir "$sys" || true
 	fi
 done
 

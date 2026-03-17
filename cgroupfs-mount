@@ -33,10 +33,10 @@ cd /sys/fs/cgroup
 
 # get/mount list of enabled cgroup controllers
 for sys in $(awk '!/^#/ { if ($4 == 1) print $1 }' /proc/cgroups); do
-	mkdir -p $sys
-	if ! mountpoint -q $sys; then
-		if ! mount -n -t cgroup -o $sys cgroup $sys; then
-			rmdir $sys || true
+	mkdir -p "$sys"
+	if ! mountpoint -q "$sys"; then
+		if ! mount -n -t cgroup -o "$sys" cgroup "$sys"; then
+			rmdir "$sys" || true
 		fi
 	fi
 done
@@ -52,7 +52,7 @@ done
 #  blkio	8	3	1
 
 # enable cgroups memory hierarchy, like systemd does (and lxc/docker desires)
-# https://github.com/systemd/systemd/blob/v245/src/core/cgroup.c#L2983
+# https://github.com/systemd/systemd/blob/main/src/core/cgroup.c
 # https://bugs.debian.org/940713
 if [ -e /sys/fs/cgroup/memory/memory.use_hierarchy ]; then
 	echo 1 > /sys/fs/cgroup/memory/memory.use_hierarchy
